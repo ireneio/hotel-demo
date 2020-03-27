@@ -1,0 +1,88 @@
+@media (max-width: 1000px){
+    .slideshow__item{
+        width: 600px;
+    }
+    
+}
+
+@media(max-width: 900px){
+    .room__main{
+        flex-direction: column;
+    }
+    .room__right{
+        margin-top: 30px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width:767px){
+    .home__btn{
+        opacity: 1;
+        z-index: 999;
+    }
+    .home__right{
+        background: $main-btn-color;
+        transform: translate(1000px, 0);
+    }
+    .slideshow__item{
+        width: 500px;
+    }
+    .slideshow__prev{
+        top: 50%;
+        left: 10%;
+        transform: translate(0, -50%);
+        color: $main-btn-color;
+    }
+    .slideshow__next{
+        top: 50%;
+        right: 10%;
+        transform: translate(0, -50%);
+        color: $main-btn-color;
+    }
+    .room__banner{
+        img{
+            &:first-child{
+                width: 100%;
+                height: 100%;
+            }
+            &:not(:first-child){
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width:500px){
+    .home__roomnum,
+    .home__logo{
+        left: 30px;
+    }
+    .home__btn{
+        right: 30px;
+    }
+    .slideshow__item{
+        width: 90%;
+    }
+    .left__main__list{
+        .left__main__list__item{
+            padding: 15px 0 15px 10px;
+        }
+    }
+    .modal{
+        width: 320px;
+        .input__group{
+            input{
+                width: 191px;
+            }
+            .input__date{
+                width: 90px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px){
+    .container{
+        width: 450px;
+    }
+}

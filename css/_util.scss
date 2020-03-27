@@ -1,0 +1,47 @@
+.container{
+    max-width: $container-width;
+    margin: 0 auto;
+}
+
+.container-md{
+    max-width: $container-md-width;
+    margin: 0 auto;
+}
+
+.container-modal{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+#toggle_fail,
+#toggle_success,
+#toggle_reserve,
+#toggle_menu{
+    display: none;
+    z-index: -999;
+    opacity: 0;
+    &:checked{
+        + div {
+            transform: translate(0);
+            display: block;
+            .modal{
+                transform: translate(-50%,-50%);
+            }
+        }
+    }
+}
+
+// #toggle_success{
+//     display: none;
+//     z-index: -999;
+//     opacity: 0;
+//     &:checked{
+//         + div {
+//             transform: translate(0, -1000px);
+//             display: block;
+//             .modal{
+//                 transform: translate(-50%, -1000px);
+//             }
+//         }
+//     }
+// }

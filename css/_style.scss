@@ -1,0 +1,413 @@
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    overflow: hidden;
+}
+
+body .container{
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    background-color: $main-color;
+    opacity: 1;
+    transition: opacity .3s;
+    .loading__content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+        div {
+            padding: 15px 0;
+        }
+    }
+}
+
+.home__cover{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: rgba(192,192,192,0.20);
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 35%, rgba(0,0,0,0.35) 100%);
+    // background: url("https://images.unsplash.com/photo-1501876725168-00c445821c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80") center center / 100% 100% no-repeat;
+    transition: background .7s;
+}
+
+.home__logo{
+    position: relative;
+    top: 62px;
+    left: 68px;
+
+    width: $logo-w;
+    height: $logo-h;
+    background: rgba(255,255,255,0.30);
+    border: 2px solid #FFFFFF;
+    font-size: 31px;
+    text-align: center;
+    color: #fff;
+    line-height: 135px;
+    letter-spacing: 3.24px;
+    transition: transform .3s;
+    cursor: pointer;
+    .home__logo__wrap{
+        display: inline-block;
+        line-height: 44px;
+        vertical-align: middle;
+    }
+    &:hover{
+        // background: #fff;
+        color: $font-color;
+        transform: rotate(25deg);
+        &::after{
+            opacity: 1;
+        }
+    }
+    &::after{
+        top: -15px;
+        left: -15px;
+        content: "";
+        width: $logo-w;
+        height: $logo-h;
+        display: block;
+        position: absolute;
+        background: $primary-color;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+}
+.home__btn{
+    opacity: 0;
+    z-index: -999px;
+    color: $main-color;
+    position: absolute;
+    right: 68px;
+    top: 62px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.home__right{
+    transition: transform .3s;
+    background: rgba(0,0,0,0.35);
+    height: 100vh;
+    width: 290px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    label {
+        color: $main-color;
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+.home__roomnum{
+    position: absolute;
+    bottom: 71px;
+    left: 68px;
+    color: $main-btn-color;
+    h2 {
+        font-size: 66px;
+        font-weight: lighter;
+        position: relative;
+        &::after{
+            content: "";
+            width: 86px;
+            height: 19px;
+            background: rgba(255,255,255,0.30);
+            position: absolute;
+            display: block;
+            bottom: -5px;
+            left: -5px;
+            
+        }
+    }
+    p {
+        margin-top: 20px;
+        font-size: 24px;
+        letter-spacing: 2.51px;
+    }
+}
+
+.home__roomlist{
+    width: 305px;
+    position: absolute;
+    top: 49px;
+    right: 0;
+    background: $main-color;
+    padding-top: 18px;
+    padding-bottom: 44px;
+    border-right: 1px solid rgba(192,192,192,0.20);
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        background: $primary-color;
+        width: 280px;
+        height: 20px;
+        bottom: -20px;
+        right: -1px;
+        z-index: -1;
+    }
+    a {
+        display: block;
+        font-size: 14px;
+        font-weight: lighter;
+        color: $contrast-color;
+        letter-spacing: 1.46px;
+        padding: 18px 100px 18px 34px;
+        position: relative;
+        &::before{
+            content:"";
+            display: block;
+            width: 23px;
+            height: 2px;
+            background-color: $main-btn-color;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        &:hover{
+            color: $main-btn-color;
+            &::before{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.home__contact{
+    position: absolute;
+    bottom: 74px;
+    margin-left: 15px;
+    color: $main-color;
+    .contact__icons{
+        font-size: 20px;
+        a{
+            color: $main-color;
+            &:first-child{
+                margin-right: 5.9px;
+            }
+        }
+        
+        margin-bottom: 40px;
+    }
+    .contact__info{
+        font-size: 14px;
+        font-weight: lighter;
+        div{
+            i {
+                font-size: 19px;
+                margin-right: 11px;
+            }
+            padding-top: 15px;
+        }
+    }
+}
+
+.room__banner{
+    height: 60vh;
+    position: relative;
+    img{
+        cursor: pointer;
+        float: left;
+        &:first-child{
+            width: 70%;
+            height: 100%;
+        }
+        &:not(:first-child){
+            width: 30%;
+            height:50%;
+        }
+    }
+}
+
+.banner__logo{
+    display: block;
+    width: 150px;
+    height: 43px;
+    position: absolute;
+    top: 42px;
+    left: 63px;
+    border: 1px solid $contrast-color;
+    color: $contrast-color;
+    font-size: 18px;
+    letter-spacing: 1.88px;
+    line-height: 43px;
+    text-align: center;
+    z-index: 2;
+    transition: color .3s, border .3s;
+    &:hover{
+        color: $main-color;
+        border: 2px solid $main-color;
+        &::after{
+            background-color: rgba(0,0,0,0.2);
+        }
+    }
+    &::after{
+        width: 150px;
+        height: 43px;
+        content: "";
+        position: absolute;
+        display: block;
+        top: -8px;
+        left: -14px;
+        background-color: rgba(0,0,0,0.1);
+        z-index: -1;
+        transition: background-color .3s;
+    }
+}
+
+.room__main{
+    margin-top: 47px;
+    display: flex;
+    margin-bottom: 60px;
+    margin: 47px 20px 60px 20px;
+}
+.room__left{
+    // width: 65%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.room__left__main{
+    flex-basis: 60%;
+    h2{
+        font-size: 36px;
+        color: $contrast-color;
+        letter-spacing: 3.76px;
+    }
+    ul{
+        margin-top: 31px;
+        font-size: 14px;
+        color: $contrast-color;
+        letter-spacing: 1.46px;
+        line-height: 31px;
+        + p {
+            margin-top: 20px;
+            font-size: 12px;
+            color: $contrast-color;
+            letter-spacing: 1.25px;
+            text-align: justify;
+            line-height: 20px;
+        }
+    }
+    .left__main__time{
+        display: inline-block;
+        margin-top: 60px;
+        margin-right: 60px;
+        font-size: 0;
+        p{
+            letter-spacing: 2.19px;
+            font-size: 14px;
+            + p{
+                margin-top: 5px;
+                font-size: 21px;
+            }
+        }
+    } 
+}
+
+.left__main__list{
+    padding: 15px 0;
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background: #F0F0F0;
+    .left__main__list__item{
+        flex-basis: 33.33333%;
+        flex-grow: 1;
+        letter-spacing: 1.25px;
+        font-size: 12px;
+        padding: 15px 30px;
+        opacity: 0.3;
+        i {
+            font-size: 15px;
+        }
+        span {
+            margin-left: 5px;
+        }
+        &--active{
+            opacity: 1;
+        }
+    }
+}
+
+
+.room__left__sub{
+    flex-basis: 10%;
+    p{  
+        text-align: right;
+        &:not(:first-child){
+            margin-top: 14px;
+        }
+        &:first-child{
+            font-size: 30px;
+            letter-spacing: 3.13px;
+        }
+        &:nth-child(n+2){
+            color: $font-color;
+            letter-spacing: 1.46px;
+            font-size: 14px;
+            font-weight: lighter;
+        }
+        &:nth-child(3){
+            font-weight: normal;
+            color: $contrast-color;
+        }
+    }
+}
+
+.room__right{
+    margin-left: 37px;
+    .room__right__btn{
+        display: inline-block;
+        margin-top: 26px;
+        font-size: 16px;
+        color: $main-color;
+        letter-spacing: 1.67px;
+        text-align: center;
+        padding: 14px 16px; 
+        background-color: $main-btn-color;
+        font-weight: lighter;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
+.room__right__calender{
+    width: 390px;
+    height: 390px;
+    background-color: $primary-color;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.15);
+}
+
+
+
+// jq datepicker
+.ui-datepicker{
+    width: 390px;
+    height: 390px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    padding: 15px 15px;
+}
