@@ -7,8 +7,6 @@ html,body {
 body .container{
     opacity: 0;
     transition: opacity 1.5s;
-
-    opacity: 1;
 }
 
 .loading{
@@ -407,6 +405,7 @@ body .container{
     height: 70vh;
     background: rgba(192,192,192,0.20);
     background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 35%, rgba(0,0,0,0.35) 100%);
+    transition: background .5s;
 }
 
 .rooms__logo{
@@ -471,6 +470,7 @@ body .container{
         box-shadow: 2px 2px 9px 0 rgba(0,0,0,0.18);
         img{
             height: 280px;
+            width: 100%;
         }
         &:hover{
             img {
@@ -495,6 +495,7 @@ body .container{
                 transition: opacity .3s;
             }
             h3 {
+                color: $contrast-color;
                 padding-top: 25px;
                 letter-spacing: 1.46px;
                 + p {

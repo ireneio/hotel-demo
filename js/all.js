@@ -1,10 +1,21 @@
 ;(function(){
     let roomsInfo = []
+    const imageArray = []
+
     const fetchInfo = {
         headers: {
             'Authorization': `Bearer ${keys.hexSchool_key}`
         }
     }
+
+    const transitionFromLoadingToLoaded = () => {
+        document.querySelector('.loading').style.opacity = '0';
+        document.querySelector('.loading').style.zIndex = '-999';
+        document.querySelector('body').style.overflow = "auto";
+        document.querySelector('body').style.overflowX = "hidden";
+        document.querySelector('body .container').style.opacity = "1";
+    }
+
     //get All Rooms
     const getRooms = async (url, params) => {
         try {  
@@ -23,24 +34,49 @@
         })
         
     }
+
     const appendRooms = async () => {
         const info = await assignRooms()
         document.querySelectorAll('.roomlist__item').forEach((item, index) => {
             item.dataset.roomId = info[index].id
             item.href = `./room.html?${info[index].id}`
         })
-        document.querySelector('.loading').style.opacity = '0';
-        document.querySelector('.loading').style.zIndex = '-999';
-        document.querySelector('body').style.overflow = "auto";
-        document.querySelector('body').style.overflowX = "hidden";
-        document.querySelector('body .container').style.opacity = "1";
 
         setBackground()
+        transitionFromLoadingToLoaded()
     }
+
     const setBackground = () => {
         document.querySelector('.home__cover').style.background = `url(${roomsInfo[3].imageUrl}) center center / 100% 100% no-repeat`
     }
-    
+
+    const appendItemsRoomsPage = async () => {
+        await assignRooms()
+        console.log(roomsInfo)
+        const parent = document.querySelector('.rooms__main__items');
+        roomsInfo.forEach(room => {
+            parent.innerHTML += 
+            `<a href="/room.html?${room.id}" class="rooms__main__item">
+                <img src=${room.imageUrl} alt="">
+                <div class="main__item__desc">
+                    <h3>${room.name}</h3>
+                    <p style="opacity: 0">no chinese name</p>
+                    <p>NT.${room.normalDayPrice} <span> 平日 </span> <span> NT.${room.holidayPrice} 假日</span></p>
+                </div>
+            </a>`
+
+            imageArray.push(room.imageUrl) //make array for background photos
+        })
+        setBackgroundRoomsPage()
+        transitionFromLoadingToLoaded()
+    }
+
+    const setBackgroundRoomsPage = () => {
+        document.querySelector('.rooms__banner').style.background = `url(${imageArray[Math.floor(Math.random() * imageArray.length)]}) center center / 100% 100% no-repeat`
+        setInterval(() => {
+            document.querySelector('.rooms__banner').style.background = `url(${imageArray[Math.floor(Math.random() * imageArray.length)]}) center center / 100% 100% no-repeat`
+        }, 2000)
+    }
 
 
     // get single room
@@ -93,12 +129,8 @@
         document.querySelectorAll('.slideshow__item img').forEach((item, index) => item.src = singleRoomInfo.imageUrl[index])
         document.querySelectorAll('.caption__name').forEach(item => item.textContent = singleRoomInfo.name)
 
-        document.querySelector('.loading').style.opacity = '0';
-        document.querySelector('.loading').style.zIndex = '-999';
-        document.querySelector('body').style.overflow = "auto";
-        document.querySelector('body .container').style.opacity = "1";
+        transitionFromLoadingToLoaded()
     }
-
     
     //slideshow
     let slideIndex = 0;
@@ -329,7 +361,9 @@
     document.addEventListener('submit', handleSubmit)
     document.addEventListener('mouseover', handleMouseover)
     
-    if(id === ""){ //landing page
+    if(window.location.pathname === "/rooms.html"){ //rooms page
+        appendItemsRoomsPage()
+    } else if(id === ""){ //landing page
         appendRooms()
     } else { //room page
         appendSingleRoom()
