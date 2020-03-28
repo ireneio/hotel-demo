@@ -594,15 +594,16 @@ body .container {
 }
 
 .rooms__banner {
+  position: relative;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   background: rgba(192, 192, 192, 0.2);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(35%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.35)));
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.35) 100%);
 }
 
 .rooms__logo {
-  top: 30%;
+  top: 200px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -615,7 +616,7 @@ body .container {
 
 .rooms__banner__boxes .banner__boxes__left {
   position: absolute;
-  top: 40%;
+  top: 350px;
   left: 50%;
   -webkit-transform: translate(-320%, -50%);
           transform: translate(-320%, -50%);
@@ -629,7 +630,7 @@ body .container {
 
 .rooms__banner__boxes .banner__boxes__right {
   position: absolute;
-  top: 40%;
+  top: 350px;
   left: 50%;
   -webkit-transform: translate(-25%, -50%);
           transform: translate(-25%, -50%);
@@ -1091,7 +1092,7 @@ body .container {
     width: 90px;
   }
   .rooms__banner__boxes .banner__boxes__left {
-    top: 30%;
+    top: 420px;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
   }
@@ -1140,6 +1141,9 @@ body .container {
 @media (max-width: 400px) {
   .home__contact {
     display: none;
+  }
+  .rooms__main__items {
+    bottom: -30px;
   }
 }
 /*# sourceMappingURL=all.css.map */

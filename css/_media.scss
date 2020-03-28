@@ -100,7 +100,7 @@
     }
     .rooms__banner__boxes{
         .banner__boxes__left{
-            top: 30%;
+            top: 420px;
             transform: translate(-50%,-50%);
         }
         .banner__boxes__right{
@@ -146,28 +146,8 @@
 @media (max-width: 400px){
     .home__contact{
         display: none;
-        // bottom: 0;
-        // .contact__icons{
-        //     font-size: 12px;
-        //     a{
-        //         color: $main-color;
-        //         &:first-child{
-        //             margin-right: 5.9px;
-        //         }
-        //     }
-        //     // margin-bottom: 40px;
-        // }
-        // .contact__info{
-        //     font-size: 12px;
-        //     font-weight: lighter;
-        //     div{
-        //         i {
-        //             font-size: 19px;
-        //             margin-right: 11px;
-        //         }
-        //         padding-top: 15px;
-        //     }
-        // }
     }
-    
+    .rooms__main__items{
+        bottom: -30px;
+    }
 }
