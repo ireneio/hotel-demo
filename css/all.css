@@ -117,7 +117,8 @@ button {
           transform: translate(-50%, -50%);
 }
 
-body {
+html, body {
+  position: relative;
   font-family: 'Noto Sans TC', sans-serif;
   overflow: hidden;
 }
@@ -1142,6 +1143,12 @@ body .container {
   .rooms__banner__boxes .banner__boxes__right .boxes__right i {
     margin-left: 25px;
     margin-right: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 450px;
   }
 }
 /*# sourceMappingURL=all.css.map */
