@@ -52,7 +52,6 @@
 
     const appendItemsRoomsPage = async () => {
         await assignRooms()
-        console.log(roomsInfo)
         const parent = document.querySelector('.rooms__main__items');
         roomsInfo.forEach(room => {
             parent.innerHTML += 
@@ -361,7 +360,7 @@
     document.addEventListener('submit', handleSubmit)
     document.addEventListener('mouseover', handleMouseover)
     
-    if(window.location.pathname === "/rooms.html"){ //rooms page
+    if(window.location.pathname.indexOf("/rooms.html") > -1){ //rooms page
         appendItemsRoomsPage()
     } else if(id === ""){ //landing page
         appendRooms()
