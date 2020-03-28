@@ -1,7 +1,7 @@
 html,body {
     position: relative;
     font-family: 'Noto Sans TC', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body .container{
@@ -100,7 +100,8 @@ body .container{
 .home__right{
     transition: transform .3s;
     background: rgba(0,0,0,0.35);
-    height: 100vh;
+    // height: 100vh;
+    height: 100%;
     width: 290px;
     position: absolute;
     top: 0;
@@ -196,35 +197,38 @@ body .container{
 .home__contact{
     position: absolute;
     bottom: 74px;
+    // bottom: 10%;
+    // top: 60%;
     margin-left: 15px;
     color: $main-color;
-    .contact__options{
-        margin-bottom: 220px;
-        cursor: pointer;
-        a { 
-            color: $main-color;
-            position: relative;
-            letter-spacing: 1.46px;
-            &::after{
-                content: "";
-                position: absolute;
-                display: block;
-                height: 2px;
-                background-color: $darker-color;
-                bottom: -3px;
-                z-index: 110;
-                width: 0;
-                transition: width .3s;
-            }
-            &:hover{
-                color: $darker-color;
-                &::after{
-                    width: 100%;
-                }
-            }
+    // .contact__options{
+    //     // margin-bottom: 10px;
+    //     margin-bottom: 220px;
+    //     cursor: pointer;
+    //     a { 
+    //         color: $main-color;
+    //         position: relative;
+    //         letter-spacing: 1.46px;
+    //         &::after{
+    //             content: "";
+    //             position: absolute;
+    //             display: block;
+    //             height: 2px;
+    //             background-color: $darker-color;
+    //             bottom: -3px;
+    //             z-index: 110;
+    //             width: 0;
+    //             transition: width .3s;
+    //         }
+    //         &:hover{
+    //             color: $darker-color;
+    //             &::after{
+    //                 width: 100%;
+    //             }
+    //         }
             
-        }
-    }
+    //     }
+    // }
     .contact__icons{
         font-size: 20px;
         a{
@@ -232,7 +236,7 @@ body .container{
             &:first-child{
                 margin-right: 5.9px;
             }
-        }    
+        }
         margin-bottom: 40px;
     }
     .contact__info{

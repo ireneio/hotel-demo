@@ -120,7 +120,7 @@ button {
 html, body {
   position: relative;
   font-family: 'Noto Sans TC', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body .container {
@@ -236,7 +236,7 @@ body .container {
   transition: transform .3s;
   transition: transform .3s, -webkit-transform .3s;
   background: rgba(0, 0, 0, 0.35);
-  height: 100vh;
+  height: 100%;
   width: 290px;
   position: absolute;
   top: 0;
@@ -343,38 +343,6 @@ body .container {
   bottom: 74px;
   margin-left: 15px;
   color: #ffffff;
-}
-
-.home__contact .contact__options {
-  margin-bottom: 220px;
-  cursor: pointer;
-}
-
-.home__contact .contact__options a {
-  color: #ffffff;
-  position: relative;
-  letter-spacing: 1.46px;
-}
-
-.home__contact .contact__options a::after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 2px;
-  background-color: #ededed;
-  bottom: -3px;
-  z-index: 110;
-  width: 0;
-  -webkit-transition: width .3s;
-  transition: width .3s;
-}
-
-.home__contact .contact__options a:hover {
-  color: #ededed;
-}
-
-.home__contact .contact__options a:hover::after {
-  width: 100%;
 }
 
 .home__contact .contact__icons {
@@ -1143,6 +1111,35 @@ body .container {
   .rooms__banner__boxes .banner__boxes__right .boxes__right i {
     margin-left: 25px;
     margin-right: 15px;
+  }
+  .room__left__main {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .room__left__sub {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-top: 30px;
+  }
+  .room__left__sub p {
+    text-align: left;
+  }
+  .room__right__calender {
+    width: auto;
+    height: auto;
+  }
+  .ui-datepicker {
+    width: auto;
+    height: auto;
+  }
+  .ui-datepicker td span, .ui-datepicker td a {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .home__contact {
+    display: none;
   }
 }
 /*# sourceMappingURL=all.css.map */

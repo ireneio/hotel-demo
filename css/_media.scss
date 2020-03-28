@@ -120,11 +120,54 @@
             }
         }
     }
-}
-
-@media (max-width: 400px){
-    .container{
-        // width: 450px;
-        // overflow-x: hidden;
+    .room__left__main{
+        flex-basis: 100%;
     }
+    .room__left__sub{
+        flex-basis: 100%;
+        margin-top: 30px;
+        p{
+            text-align: left;
+        }
+    }
+    .room__right__calender{
+        width: auto;
+        height: auto;
+    }
+    .ui-datepicker{
+        width: auto;
+        height: auto;
+    }
+    .ui-datepicker td span, .ui-datepicker td a {
+        padding: 5px;
+    }
+
+}
+@media (max-width: 400px){
+    .home__contact{
+        display: none;
+        // bottom: 0;
+        // .contact__icons{
+        //     font-size: 12px;
+        //     a{
+        //         color: $main-color;
+        //         &:first-child{
+        //             margin-right: 5.9px;
+        //         }
+        //     }
+        //     // margin-bottom: 40px;
+        // }
+        // .contact__info{
+        //     font-size: 12px;
+        //     font-weight: lighter;
+        //     div{
+        //         i {
+        //             font-size: 19px;
+        //             margin-right: 11px;
+        //         }
+        //         padding-top: 15px;
+        //     }
+        // }
+    }
+    
 }
