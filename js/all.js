@@ -364,7 +364,7 @@
 
     if(window.location.pathname.indexOf("/rooms.html") > -1){ //rooms page
         appendItemsRoomsPage()
-    } else if(window.location.pathname.indexOf("/index.html") > -1){ //landing page
+    } else if(id === ""){ //landing page
         appendRooms()
     } else { //room page
         appendSingleRoom()
