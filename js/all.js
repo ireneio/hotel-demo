@@ -360,6 +360,8 @@
     document.addEventListener('submit', handleSubmit)
     document.addEventListener('mouseover', handleMouseover)
     
+    console.log(window.location.pathname);
+    
     if(window.location.pathname.indexOf("/rooms.html") > -1){ //rooms page
         appendItemsRoomsPage()
     } else if(window.location.pathname.indexOf("/index.html") > -1){ //landing page
