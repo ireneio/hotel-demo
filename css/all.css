@@ -119,6 +119,7 @@ button {
 
 body {
   font-family: 'Noto Sans TC', sans-serif;
+  overflow: hidden;
 }
 
 body .container {
