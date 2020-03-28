@@ -124,6 +124,7 @@
 
 @media (max-width: 400px){
     .container{
-        width: 450px;
+        // width: 450px;
+        overflow-x: hidden;
     }
 }

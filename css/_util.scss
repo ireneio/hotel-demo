@@ -35,18 +35,3 @@
         }
     }
 }
-
-// #toggle_success{
-//     display: none;
-//     z-index: -999;
-//     opacity: 0;
-//     &:checked{
-//         + div {
-//             transform: translate(0, -1000px);
-//             display: block;
-//             .modal{
-//                 transform: translate(-50%, -1000px);
-//             }
-//         }
-//     }
-// }

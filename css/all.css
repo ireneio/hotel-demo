@@ -1148,7 +1148,7 @@ body .container {
 
 @media (max-width: 400px) {
   .container {
-    width: 450px;
+    overflow-x: hidden;
   }
 }
 /*# sourceMappingURL=all.css.map */
