@@ -1,11 +1,13 @@
 body {
     font-family: 'Noto Sans TC', sans-serif;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 body .container{
     opacity: 0;
     transition: opacity 1.5s;
+
+    opacity: 1;
 }
 
 .loading{
@@ -63,7 +65,6 @@ body .container{
         vertical-align: middle;
     }
     &:hover{
-        // background: #fff;
         color: $font-color;
         transform: rotate(25deg);
         &::after{
@@ -196,6 +197,33 @@ body .container{
     bottom: 74px;
     margin-left: 15px;
     color: $main-color;
+    .contact__options{
+        margin-bottom: 220px;
+        cursor: pointer;
+        a { 
+            color: $main-color;
+            position: relative;
+            letter-spacing: 1.46px;
+            &::after{
+                content: "";
+                position: absolute;
+                display: block;
+                height: 2px;
+                background-color: $darker-color;
+                bottom: -3px;
+                z-index: 110;
+                width: 0;
+                transition: width .3s;
+            }
+            &:hover{
+                color: $darker-color;
+                &::after{
+                    width: 100%;
+                }
+            }
+            
+        }
+    }
     .contact__icons{
         font-size: 20px;
         a{
@@ -203,8 +231,7 @@ body .container{
             &:first-child{
                 margin-right: 5.9px;
             }
-        }
-        
+        }    
         margin-bottom: 40px;
     }
     .contact__info{
@@ -400,7 +427,128 @@ body .container{
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.15);
 }
 
+.rooms__banner{
+    width: 100%;
+    height: 60vh;
+    background: rgba(192,192,192,0.20);
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 35%, rgba(0,0,0,0.35) 100%);
+}
 
+.rooms__logo{
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    &:hover{
+        transform: rotate(25deg) translate(-50%,-30%);
+    }
+}
+.rooms__banner__boxes{
+    .banner__boxes__left{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-320%,-50%);
+        font-size: 25px;
+        i{
+            color: $main-color;
+            padding-right: 5px;
+        }
+        
+    }
+    .banner__boxes__right{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-25%,-50%);
+        &::after{
+            content: "";
+            display: block;
+            width: 80px;
+            height: 1px;
+            background-color: $main-color;
+            transform: rotate(90deg) translate(-50px, 70px);
+        }
+        .boxes__right{
+            font-size: 14px;
+            padding-bottom: 14px;
+            color: $main-color;
+            i{
+                margin-right: 21px;
+            }
+        }
+    }
+}
+
+.rooms__main__items{
+    position: relative;
+    bottom: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    
+    .rooms__main__item{
+        height: 350px;
+        overflow: hidden;
+        margin-bottom: 60px;
+        flex-basis: 300px;
+        cursor: pointer;
+        box-shadow: 2px 2px 9px 0 rgba(0,0,0,0.18);
+        img{
+            height: 280px;
+        }
+        &:hover{
+            img {
+                opacity: .7;
+            }
+            .main__item__desc{
+                transform: translateY(-50%);
+                h3 + p {
+                    opacity: 1;
+                }
+                p {
+                    opacity: 1;
+                }
+            }
+        }
+        .main__item__desc{
+            padding: 0 30px;
+            background-color: $primary-color;
+            transition: transform .3s;
+            p {
+                opacity: 0;
+                transition: opacity .3s;
+            }
+            h3 {
+                padding-top: 25px;
+                letter-spacing: 1.46px;
+                + p {
+                    font-size: 12px;
+                    margin-top: 2px;
+                    letter-spacing: 1.25px;
+                    color: $font-color;
+                }
+            }
+            p + p{
+                margin-top: 23px;
+                padding-bottom: 23px;
+                font-size: 21px;
+                color: $contrast-color;
+                letter-spacing: 2.19px;
+                display: flex;
+                align-items: flex-end;
+                span {
+                    font-size: 12px;
+                    margin-left: 5px;
+                }
+                span + span {
+                    color: $font-color;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}
 
 // jq datepicker
 .ui-datepicker{

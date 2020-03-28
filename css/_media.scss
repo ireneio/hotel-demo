@@ -5,6 +5,12 @@
     
 }
 
+@media(max-width: 920px){
+    .rooms__main__items{
+        justify-content: space-evenly;
+    }
+}
+
 @media(max-width: 900px){
     .room__main{
         flex-direction: column;
@@ -50,12 +56,25 @@
             }
         }
     }
+
+    .rooms__banner__boxes{
+        .banner__boxes__right{
+            .boxes__right{
+                i{
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width:500px){
     .home__roomnum,
     .home__logo{
         left: 30px;
+    }
+    .rooms__logo{
+        left: 50%; 
     }
     .home__btn{
         right: 30px;
@@ -79,10 +98,32 @@
             }
         }
     }
+    .rooms__banner__boxes{
+        .banner__boxes__left{
+            top: 30%;
+            transform: translate(-50%,-50%);
+        }
+        .banner__boxes__right{
+            width: 300px;
+            transform: translate(-40%,-50%);
+            &::after{
+                display: none;             
+            }
+            .boxes__right{
+                font-size: 14px;
+                padding-bottom: 14px;
+                color: $main-color;
+                i{
+                    margin-left: 25px;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 400px){
     .container{
-        width: 450px;
+        // width: 450px;
     }
 }

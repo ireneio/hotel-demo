@@ -13,6 +13,11 @@
     margin: 0 auto;
 }
 
+.container-main{
+    max-width: $container-main-width;
+    margin: 0 auto;
+}
+
 #toggle_fail,
 #toggle_success,
 #toggle_reserve,
