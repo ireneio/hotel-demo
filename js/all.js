@@ -2,7 +2,7 @@
     let roomsInfo = []
     const fetchInfo = {
         headers: {
-            'Authorization': 'Bearer YudqEsXtdb7IVTNrMpXmoOgB2BXSwxPg0KBhl1OwgVDxtHLz4Aw9ePsqttt5'
+            'Authorization': `Bearer ${keys.hexSchool_key}`
         }
     }
     const getRooms = async (url, params) => {
@@ -40,23 +40,7 @@
     const setBackground = () => {
         document.querySelector('.home__cover').style.background = `url(${roomsInfo[3].imageUrl}) center center / 100% 100% no-repeat`
     }
-    const addMouseoverListener = () => {
-        document.addEventListener('mouseover', mouseoverHandler)
-    }
     
-    const mouseoverHandler = (e) => {
-        const target = Array.from(e.target.classList);
-        if(target.indexOf('roomlist__item') > -1){
-            let roomIndex = 0;
-            const room = roomsInfo.filter((room, index) => {
-                if(room.id === e.target.dataset.roomId) roomIndex = index;
-                return room.id === e.target.dataset.roomId;
-            })
-            document.querySelector('.home__cover').style.background = `url(${room[0].imageUrl}) center center / 100% 100% no-repeat`
-            document.querySelector('.home__roomnum h2').textContent = '0' + (roomIndex + 1);
-            document.querySelector('.home__roomnum p').textContent = room[0].name;
-        }
-    }
 
 
     // get single room
@@ -66,8 +50,6 @@
     const getSingleRoom = async () => {
         try {
             const data = await getRooms(`https://challenge.thef2e.com/api/thef2e2019/stage6/room/${id}`, fetchInfo)
-            console.log(data)
-
             singleRoomInfo = data.room[0];
             return new Promise((resolve, reject) => {
                 resolve()
@@ -251,19 +233,37 @@
     }
 
     const handleSubmit = (e) => {
-        console.log(booking)
-        e.preventDefault()
-        const check90 = dateWithin90()
-        check90 || alert('請輸入90天內的日期')
-        booking.name.length > 0 || alert('請輸入姓名')
-        booking.phone.length > 0 || alert('請輸入電話')
+        const target = Array.from(e.target.classList);
+        if(target.indexOf('reserve-form') > -1){
+            e.preventDefault()
+            const check90 = dateWithin90()
+            check90 || alert('請輸入90天內的日期')
+            booking.name.length > 0 || alert('請輸入姓名')
+            booking.phone.length > 0 || alert('請輸入電話')
 
-        //TODO submit
-        if(booking.name.length > 0 && booking.phone.length > 0 && check90){
-            showSuccessModal()
-            closeReserveModal()
-        } else {
-            showFailModal()
+            //TODO submit
+            if(booking.name.length > 0 && booking.phone.length > 0 && check90){
+                showSuccessModal()
+                closeReserveModal()
+                document.querySelector('.reserve-form').reset()
+            } else {
+                showFailModal()
+            }
+        }
+        
+    }
+    
+    const handleMouseover = (e) => {
+        const target = Array.from(e.target.classList);
+        if(target.indexOf('roomlist__item') > -1){
+            let roomIndex = 0;
+            const room = roomsInfo.filter((room, index) => {
+                if(room.id === e.target.dataset.roomId) roomIndex = index;
+                return room.id === e.target.dataset.roomId;
+            })
+            document.querySelector('.home__cover').style.background = `url(${room[0].imageUrl}) center center / 100% 100% no-repeat`
+            document.querySelector('.home__roomnum h2').textContent = '0' + (roomIndex + 1);
+            document.querySelector('.home__roomnum p').textContent = room[0].name;
         }
     }
 
@@ -271,6 +271,7 @@
     document.addEventListener('click', handleClick)
     document.addEventListener('change', handleChange)
     document.addEventListener('submit', handleSubmit)
+    document.addEventListener('mouseover', handleMouseover)
     
     if(id === ""){ //landing page
         appendRooms()
@@ -279,4 +280,4 @@
         showSlide(slideIndex)
         runDatePicker()
     }
-})()
+})(keys)
