@@ -112,10 +112,12 @@
             slideIndex = slides.length - 1;
         }
         for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            slides[i].style.opacity = "0";
         }
-        slides[slideIndex].style.display = "block";
+        slides[slideIndex].style.opacity = "1";
     }
+
+    
 
     //calculate total
     const booking = {

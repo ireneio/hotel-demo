@@ -7,9 +7,10 @@
     top: 0;
     left: 0;
     z-index: 5;
-    a {
+    span {
         font-size: 30px;
         position: absolute;
+        cursor: pointer;
     }
 }
 .slideshow__item{

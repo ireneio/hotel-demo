@@ -606,9 +606,10 @@ body .container {
   z-index: 5;
 }
 
-.slideshow a {
+.slideshow span {
   font-size: 30px;
   position: absolute;
+  cursor: pointer;
 }
 
 .slideshow__item {
