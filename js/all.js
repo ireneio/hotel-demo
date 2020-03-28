@@ -35,7 +35,6 @@
         document.querySelector('body .container').style.opacity = "1";
 
         setBackground()
-        addMouseoverListener()
     }
     const setBackground = () => {
         document.querySelector('.home__cover').style.background = `url(${roomsInfo[3].imageUrl}) center center / 100% 100% no-repeat`
