@@ -1145,10 +1145,4 @@ body .container {
     margin-right: 15px;
   }
 }
-
-@media (max-width: 400px) {
-  .container {
-    overflow-x: hidden;
-  }
-}
 /*# sourceMappingURL=all.css.map */
