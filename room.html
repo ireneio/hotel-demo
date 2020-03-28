@@ -154,6 +154,12 @@
         <div class="modal__wrapper modal__reserve">
             <div class="modal">
                 <div class="container-modal">
+                    <div class="modal__loading">
+                        <div class="modal__loading__content">
+                            <div>正在提交您的預定...</div>
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
                     <h2>預約時段</h2>
                     <form action="" class="reserve-form">
                         <div class="input__group">
@@ -218,7 +224,7 @@
                     <h2>預約失敗</h2>
                     <div class="modal__status">
                         <i class="fas fa-calendar-times"></i>
-                        <p>預約時間已被人預訂</p>
+                        <p class="modal__message">預約時間已被人預訂</p>
                     </div>
                     <div class="modal__btn__group">
                         <label class="modal__btn" for="toggle_fail">返回</label>

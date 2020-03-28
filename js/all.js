@@ -5,6 +5,7 @@
             'Authorization': `Bearer ${keys.hexSchool_key}`
         }
     }
+    //get All Rooms
     const getRooms = async (url, params) => {
         try {  
             const response = await fetch(url, params)
@@ -119,19 +120,44 @@
     
 
     //calculate total
-    const booking = {
+    let booking = {
         name: "",
         phone: "",
         startDate: "",
         endDate: "",
+        dates: [],
         total: 0
+    }
+
+    const reserveRoom = async () => {
+        const reservationInfo = {
+            name: booking.name,
+            tel: booking.phone,
+            date: booking.dates
+        }
+        const fetchInfo = {
+            method: 'POST',
+            body: JSON.stringify(reservationInfo),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${keys.hexSchool_key}`
+            }
+        }
+        try{
+            const response = await fetch(`https://challenge.thef2e.com/api/thef2e2019/stage6/room/${id}`, fetchInfo)
+            const data = await response.json()
+            return [response.ok, data];
+        } catch(e){
+            console.log(e)
+        }
     }
 
     const getDatesBetween = (startDate, endDate) => {
         let result = []
         let currentDate = startDate
-        while(currentDate <= endDate){
+        while(currentDate < endDate){ //dont count the last day (checkout day)
             result.push(new Date(currentDate))
+            booking.dates.push(new Date(currentDate).toISOString().split("T")[0])
             currentDate = moment(currentDate).add(1, 'days');
         }
         return result
@@ -178,6 +204,7 @@
 
     const runDatePicker = () => {
         $(".datepicker").datepicker({
+            minDate: 1,
             onSelect: function (dateText, inst) {
                 booking.startDate = new Date(dateText)
                 const dates = calculateTotal()
@@ -185,6 +212,7 @@
             }
         });
         $(".datepicker2").datepicker({
+            minDate: 1,
             onSelect: function (dateText, inst) {
                 booking.endDate = new Date(dateText)
                 const dates = calculateTotal()
@@ -198,12 +226,22 @@
         document.querySelector('#toggle_success').checked = true;
     }
 
-    const showFailModal = () => {
+    const showFailModal = (message) => {
+        document.querySelector('.modal__message').textContent = message;
         document.querySelector('#toggle_fail').checked = true;
     }
 
     const closeReserveModal = () => {
         document.querySelector('#toggle_reserve').checked = false;
+        document.querySelector('.reserve-form').reset() //reset form on close
+    }
+
+    const showModalLoading = () => {
+        document.querySelector('.modal__loading').style.display = 'block';
+    }
+
+    const closeModalLoading = () => {
+        document.querySelector('.modal__loading').style.display = 'none';
     }
 
     //handlers
@@ -233,22 +271,39 @@
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         const target = Array.from(e.target.classList);
         if(target.indexOf('reserve-form') > -1){
             e.preventDefault()
             const check90 = dateWithin90()
-            check90 || alert('請輸入90天內的日期')
-            booking.name.length > 0 || alert('請輸入姓名')
-            booking.phone.length > 0 || alert('請輸入電話')
+            check90 || showFailModal('請輸入90天內的日期')
+            booking.name.length > 0 || showFailModal('請輸入所有欄位')
+            booking.phone.length > 0 || showFailModal('請輸入所有欄位')
 
-            //TODO submit
+            //submit form
             if(booking.name.length > 0 && booking.phone.length > 0 && check90){
-                showSuccessModal()
-                closeReserveModal()
-                document.querySelector('.reserve-form').reset()
-            } else {
-                showFailModal()
+                showModalLoading()
+                try {
+                    const response = await reserveRoom()
+                    const [ status, message ] = response
+                    if(!status){ //reservation fail
+                        throw new Error(message.message)
+                    }
+                    booking = {  //reservation success
+                        name: "",
+                        phone: "",
+                        startDate: "",
+                        endDate: "",
+                        dates: [],
+                        total: 0
+                    }
+                    showSuccessModal()
+                    closeReserveModal()
+                } catch (e){
+                    console.log(e.message)
+                    showFailModal(e.message)
+                }
+                closeModalLoading()
             }
         }
         
