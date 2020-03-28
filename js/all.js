@@ -55,7 +55,7 @@
         const parent = document.querySelector('.rooms__main__items');
         roomsInfo.forEach(room => {
             parent.innerHTML += 
-            `<a href="/room.html?${room.id}" class="rooms__main__item">
+            `<a href="./room.html?${room.id}" class="rooms__main__item">
                 <img src=${room.imageUrl} alt="">
                 <div class="main__item__desc">
                     <h3>${room.name}</h3>
@@ -361,7 +361,7 @@
     document.addEventListener('mouseover', handleMouseover)
     
     console.log(window.location.pathname);
-    
+
     if(window.location.pathname.indexOf("/rooms.html") > -1){ //rooms page
         appendItemsRoomsPage()
     } else if(window.location.pathname.indexOf("/index.html") > -1){ //landing page
