@@ -11,8 +11,8 @@
     const transitionFromLoadingToLoaded = () => {
         document.querySelector('.loading').style.opacity = '0';
         document.querySelector('.loading').style.zIndex = '-999';
-        document.querySelector('body').style.overflow = "auto";
-        document.querySelector('body').style.overflowX = "hidden";
+        // document.querySelector('body').style.overflow = "auto";
+        // document.querySelector('body').style.overflowX = "hidden";
         document.querySelector('body .container').style.opacity = "1";
     }
 
