@@ -425,7 +425,8 @@ body .container{
         transform: translate(-320%,-50%);
         font-size: 25px;
         i{
-            color: $main-color;
+            // color: $main-color;
+            color: #181818;
             padding-right: 5px;
         }
         
@@ -446,7 +447,8 @@ body .container{
         .boxes__right{
             font-size: 14px;
             padding-bottom: 14px;
-            color: $main-color;
+            // color: $main-color;
+            color: #181818;
             i{
                 margin-right: 21px;
             }
