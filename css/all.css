@@ -118,9 +118,9 @@ button {
 }
 
 html, body {
-  position: relative;
-  font-family: 'Noto Sans TC', sans-serif;
-  overflow-x: hidden;
+/*   position: relative; */
+/*   font-family: 'Noto Sans TC', sans-serif; */
+/*   overflow-x: hidden; */
 }
 
 body .container {
