@@ -339,14 +339,14 @@ body .container {
 
 .home__contact {
   position: absolute;
-  bottom: 74px;
-  margin-left: 15px;
+  bottom: 36px;
+  margin-left: 14px;
   color: #ffffff;
 }
 
 .home__contact .contact__icons {
-  font-size: 20px;
-  margin-bottom: 40px;
+  font-size: 24px;
+  margin-bottom: 16px;
 }
 
 .home__contact .contact__icons a {
