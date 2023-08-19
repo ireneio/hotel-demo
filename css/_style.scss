@@ -2,6 +2,7 @@ html,body {
     position: relative;
     font-family: 'Noto Sans TC', sans-serif;
     // overflow-x: hidden;
+    overflow: auto !important;
 }
 
 body .container{
